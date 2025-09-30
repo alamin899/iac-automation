@@ -1,0 +1,2 @@
+nginx_package: nginx
+docker_package: docker-ce

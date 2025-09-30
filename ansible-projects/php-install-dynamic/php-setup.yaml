@@ -1,0 +1,11 @@
+- name: Install PHP Dynamically
+  hosts: myServer
+  become: yes
+
+  vars_prompt:
+    - name: "php_version"
+      prompt: "Enter the PHP version you want to install (e.g., 7.4, 8.1, 8.2, 8.3)"
+      private: no
+
+  roles:
+    - php #example role name nginx mysql

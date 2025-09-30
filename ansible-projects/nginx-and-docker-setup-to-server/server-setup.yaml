@@ -1,0 +1,61 @@
+- name: Setup Server with Nginx and Docker
+  hosts: webservers
+  become: yes
+
+  tasks:
+    # --- Common ---
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    # --- Nginx Installation ---
+    - name: Install Nginx
+      apt:
+        name: "{{ nginx_package }}"
+        state: present
+
+    - name: Ensure Nginx is running
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    # --- Docker Installation ---
+    - name: Install required packages
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker APT repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Install Docker CE
+      apt:
+        name: "{{ docker_package }}"
+        state: latest
+        update_cache: yes
+
+    - name: Ensure Docker is running
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    # --- Add User to Docker Group ---
+    - name: Add root user to docker group
+      user:
+        name: root
+        groups: docker
+        append: yes
+
