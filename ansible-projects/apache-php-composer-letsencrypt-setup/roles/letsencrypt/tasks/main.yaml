@@ -1,0 +1,10 @@
+- name: Install Certbot
+  apt:
+    name: certbot
+    state: present
+    update_cache: yes
+
+- name: Install Certbot Apache plugin
+  apt:
+    name: python3-certbot-apache
+    state: present

@@ -1,13 +1,11 @@
-# PHP Installation with Ansible
-
-This project automates the installation of PHP using Ansible.
+# Setup apache php composer and letsencrypt
 
 ## Usage
 
 Run the following command to execute the playbook:
 
 ```bash
-ansible-playbook -i inventory.ini php-setup.yml
+ansible-playbook -i inventory.ini playbook.yml
 ```
 
 When prompted, enter the PHP version you want to install. For example:
