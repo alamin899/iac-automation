@@ -1,0 +1,3 @@
+---
+certbot_email: "alamin@appnap.io"         # Used when running certbot manually
+certbot_domains: []                       # Example: ["example.com", "www.example.com"]

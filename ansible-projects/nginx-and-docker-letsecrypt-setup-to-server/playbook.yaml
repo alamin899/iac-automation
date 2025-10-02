@@ -1,0 +1,9 @@
+---
+- name: Setup Server with Nginx and Docker
+  hosts: myServer
+  become: yes
+
+  roles:
+    - nginx
+    - docker
+    - certbot
