@@ -1,0 +1,19 @@
+# Ignore the .terraform directory (plugin cache, working directory)
+.terraform/
+
+# Ignore override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore plan files
+*.tfplan
+tfplan
+
+# Ignore state files
+*.tfstate
+*.tfstate.*
+
+# Optionally, ignore the .terraform.lock.hcl file if you're not committing it
+.terraform.lock.hcl
