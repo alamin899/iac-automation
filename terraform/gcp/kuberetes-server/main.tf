@@ -12,7 +12,7 @@ data "google_compute_network" "default" {
 # Create Server 1
 resource "google_compute_instance" "server_1" {
   name         = "kubernetes-master-node-1"
-  machine_type = "e2-medium"
+  machine_type = "e2-small"
   zone         = "asia-southeast1-a"
 
   boot_disk {
@@ -36,8 +36,8 @@ resource "google_compute_instance" "server_1" {
 
 # Create Server 2
 resource "google_compute_instance" "server_2" {
-  name         = "kubernetes-worker-node-2"
-  machine_type = "e2-medium"
+  name         = "kubernetes-worker-node-1"
+  machine_type = "e2-small"
   zone         = "asia-southeast1-b"
 
   boot_disk {
@@ -61,8 +61,8 @@ resource "google_compute_instance" "server_2" {
 
 # Create Server 3
 resource "google_compute_instance" "server_3" {
-  name         = "kubernetes-worker-node-3"
-  machine_type = "e2-medium"
+  name         = "kubernetes-worker-node-2"
+  machine_type = "e2-small"
   zone         = "asia-southeast1-c"
 
   boot_disk {
